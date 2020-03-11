@@ -4,7 +4,7 @@
 <?php
 get_header();
 ?>
-    <section class="section service">
+        <section class="section service">
             <div class="container">
                 <div class="breadcreams">
                     <a href="/" class="breadcreams__link">Главная /</a>
@@ -116,114 +116,62 @@ get_header();
                     <div class="reviews__col">
                         <div class="reviews-slider">
                             <ul class="reviews-slider__list">
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациент 50 лет, сделаны керамические виниры 8 шт.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>3 взита</div>
+                                <?php
+                                    global $post;
+                                    $news_args = array(
+                                        'publish' => true,
+                                        'category_name' => 'works-viniri',
+                                    );
+                                    $myposts = get_posts($news_args);
+                                    foreach( $myposts as $post ){
+                                        setup_postdata( $post );
+                                        ?>
+                                        <li class="reviews-slider__item">
+                                            <div class="reviews-slider__content">
+                                                <div class="reviews-slider__ava">
+                                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
                                                 </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>145 000 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/viniri/1.jpeg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/viniri/1.jpeg" alt="" class="reviews-slider__img">
-                                                        </a>
+                                                <div class="reviews-slider__info">
+                                                    <div class="reviews-slider__title"><?php the_title(); ?></div>
+                                                    <div class="reviews-slider__row">
+                                                        <div class="reviews-slider__col">
+                                                            <div>Срок лечения</div>
+                                                            <div><?php echo get_post_meta( $post->ID, 'period', true );?></div>
+                                                        </div>
+                                                        <div class="reviews-slider__col">
+                                                            <div>Сумма лечения</div>
+                                                            <div><span><?php echo get_post_meta( $post->ID, 'amount', true );?></span> руб.</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="/<?php echo get_template_directory_uri() ?>imgs/viniri/2.jpeg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/viniri/2.jpeg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациентка 30 лет, 8 виниров.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>4 визита</div>
-                                                </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>145 000 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/viniri/3.jpeg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/viniri/3.jpeg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/viniri/4.jpeg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/viniri/4.jpeg" alt="" class="reviews-slider__img">
-                                                        </a>
+                                                    <div class="reviews-slider__photos">
+                                                        <?php
+                                                            if ( get_post_meta( get_the_ID(), 'pictures', false ) ){
+                                                                $image_array = get_post_meta( get_the_ID(), 'pictures', false );
+                                                            }
+                                                            if ( $image_array ) {
+                                                            
+                                                                foreach ( $image_array as $image ) {
+                                                                    
+                                                                    $thumbimg = wp_get_attachment_image( $image['ID'], 'thumbnail');
+                                                                    $fullimg = pods_image_url( $image['ID'], 'large');
+                                                                    echo    '<div class="reviews-slider__photo-wrap">
+                                                                                <div class="reviews-slider__photo">
+                                                                                    <a href="'.  $fullimg . '" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
+                                                                                        <img src="'.  $fullimg . '" alt="" class="reviews-slider__img">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>';
+                                                                }
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациентка 60 лет, 10 виниров.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>3 визита</div>
-                                                </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>180 000 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/viniri/5.jpeg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/viniri/5.jpeg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/viniri/6.jpeg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/viniri/6.jpeg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                        </li>
+                                        <?php 
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
                             </ul>
                         </div>
                         <div class="slider-buttons slider-buttons--reviews">
