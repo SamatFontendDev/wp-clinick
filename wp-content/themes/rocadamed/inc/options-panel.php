@@ -285,7 +285,7 @@
         'icon'             => 'el el-home'
     ) );
     Redux::setSection( $opt_name, array(
-        'title'            => __( 'Номер телефона', 'redux-framework-demo' ),
+        'title'            => __( 'Главная страница', 'redux-framework-demo' ),
         'id'               => 'basic-phone',
         'subsection'       => true,
         'customizer_width' => '500px',
@@ -295,18 +295,43 @@
                 'type'     => 'text',
                 'title'    => __( 'Номер телефона', 'redux-framework-demo' ),
                 'subtitle' => __( 'Введите номер телефона', 'redux-framework-demo' ),
-                'desc'     => __( 'Номер телефона в шапке сайта', 'redux-framework-demo' ),
                 'default'  => ''
             ),
-           
-        )
-    ) );
-    Redux::setSection( $opt_name, array(
-        'title'            => __( 'Совет врача главная', 'redux-framework-demo' ),
-        'id'               => 'basic-doctor-text',
-        'subsection'       => true,
-        'customizer_width' => '500px',
-        'fields'           => array(
+            array(
+                'id'       => 'main-title',
+                'type'     => 'text',
+                'title'    => __( 'Заголовок первого блока', 'redux-framework-demo' ),
+                'subtitle' => __( 'Введите заголовок', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'main-subtitle',
+                'type'     => 'text',
+                'title'    => __( 'Подзаголовок первого блока', 'redux-framework-demo' ),
+                'subtitle' => __( 'Введите подзаголовок', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'main-second-title',
+                'type'     => 'text',
+                'title'    => __( 'Заголовок второго блока', 'redux-framework-demo' ),
+                'subtitle' => __( 'Введите заголовок', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'main-third-title',
+                'type'     => 'text',
+                'title'    => __( 'Заголовок третьего блока', 'redux-framework-demo' ),
+                'subtitle' => __( 'Введите заголовок', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'main-third-text',
+                'type'     => 'text',
+                'title'    => __( 'Текст третьего блока', 'redux-framework-demo' ),
+                'subtitle' => __( 'Введите текст', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
             array(
                 'id'       => 'doctor-recomendation',
                 'type'     => 'text',
@@ -315,9 +340,32 @@
                 'desc'     => __( 'Совет врача на главной', 'redux-framework-demo' ),
                 'default'  => ''
             ),
-           
+            array(
+                'id'       => 'main-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Совет врача по пунктам', 'redux-framework-demo' ),
+            ),
+            array(
+                'id'       => 'doctor-block-title',
+                'type'     => 'text',
+                'title'    => __( 'Заголовок блока с врачами', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'doctor-block-subtitle',
+                'type'     => 'text',
+                'title'    => __( 'Подзаголовок блока с врачами', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'doctor-block-text',
+                'type'     => 'text',
+                'title'    => __( 'Текст под слайдером с врачами', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
         )
     ) );
+   
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Ималантация', 'redux-framework-demo' ),
         'id'               => 'basic-implantacia-page',
@@ -360,6 +408,24 @@
                 'default'  => ''
             ),
             array(
+                'id'          => 'implatacia-opt-slides',
+                'type'        => 'slides',
+                'title'       => __( 'Этапы', 'redux-framework-demo' ),
+                'subtitle'    => __( 'Изображения должны быть квадратными', 'redux-framework-demo' ),
+            ),
+            array(
+                'id'       => 'advantages-title',
+                'type'     => 'text',
+                'title'    => __( 'Заголовок блока с преимуществами', 'redux-framework-demo' ),
+                'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'implantacia-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Преимущества', 'redux-framework-demo' ),
+            ),
+            array(
                 'id'       => 'implantacia-doctor-recomendation-title',
                 'type'     => 'text',
                 'title'    => __( 'Заголовок блока с советом врача', 'redux-framework-demo' ),
@@ -373,7 +439,7 @@
                 'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
                 'default'  => ''
             ),
-           
+            
         )
     ) );
     Redux::setSection( $opt_name, array(
@@ -418,11 +484,34 @@
                 'default'  => ''
             ),
             array(
+                'id'          => 'viniri-opt-slides',
+                'type'        => 'slides',
+                'title'       => __( 'Этапы', 'redux-framework-demo' ),
+                'subtitle'    => __( 'Изображения должны быть квадратными', 'redux-framework-demo' ),
+            ),
+            array(
+                'id'       => 'advantages-viniri-title',
+                'type'     => 'text',
+                'title'    => __( 'Заголовок блока с преимуществами', 'redux-framework-demo' ),
+                'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'viniri-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Преимущества', 'redux-framework-demo' ),
+            ),
+            array(
                 'id'       => 'viniri-doctor-recomendation-title',
                 'type'     => 'text',
                 'title'    => __( 'Заголовок блока с советом врача', 'redux-framework-demo' ),
                 'desc'     => __( 'Введите заголовок', 'redux-framework-demo' ),
                 'default'  => ''
+            ),
+            array(
+                'id'       => 'viniri-advice-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Совет врача по пунктам', 'redux-framework-demo' ),
             ),
         )
     ) );
@@ -468,11 +557,33 @@
                 'default'  => ''
             ),
             array(
+                'id'          => 'ortodont-opt-slides',
+                'type'        => 'slides',
+                'title'       => __( 'Этапы', 'redux-framework-demo' ),
+                'subtitle'    => __( 'Изображения должны быть квадратными', 'redux-framework-demo' ),
+            ),
+            array(
+                'id'       => 'ortodont-advantages-title',
+                'type'     => 'text',
+                'title'    => __('Заголовок блока с преимуществами', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'ortodont-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Преимущества', 'redux-framework-demo' ),
+            ),
+            array(
                 'id'       => 'ortodont-doctor-recomendation-title',
                 'type'     => 'text',
                 'title'    => __( 'Заголовок блока с советом врача', 'redux-framework-demo' ),
                 'desc'     => __( 'Введите заголовок', 'redux-framework-demo' ),
                 'default'  => ''
+            ),
+            array(
+                'id'       => 'ortodont-advice-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Совет врача по пунктам', 'redux-framework-demo' ),
             ),
         )
     ) );
@@ -518,6 +629,17 @@
                 'default'  => ''
             ),
             array(
+                'id'       => 'lechenie-zubov-advantages-title',
+                'type'     => 'text',
+                'title'    => __('Заголовок блока с преимуществами', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-zubov-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Преимущества', 'redux-framework-demo' ),
+            ),
+            array(
                 'id'       => 'lechenie-zubov-doctor-recomendation-title',
                 'type'     => 'text',
                 'title'    => __( 'Заголовок блока с советом врача', 'redux-framework-demo' ),
@@ -530,6 +652,18 @@
                 'title'    => __( 'Текст блока с советом врача', 'redux-framework-demo' ),
                 'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
                 'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-zubov-doctor-recomendation-text-2',
+                'type'     => 'text',
+                'title'    => __( 'Второй текст блока с советом врача', 'redux-framework-demo' ),
+                'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-zubov-advice-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Совет врача по пунктам', 'redux-framework-demo' ),
             ),
         )
     ) );
@@ -575,6 +709,28 @@
                 'default'  => ''
             ),
             array(
+                'id'       => 'lechenie-desen-why-title',
+                'type'     => 'text',
+                'title'    => __('Заголовок блока почему нужно лечить болезни десен', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-desen-opt-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Почему нужно лечить болезни десен по пунктам', 'redux-framework-demo' ),
+            ),
+            array(
+                'id'       => 'lechenie-desen-paradont-title',
+                'type'     => 'text',
+                'title'    => __('Заголовок блока вам нужен парадонтологог', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-desen-opt-paradont-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Вам нужен парадонтологога по пунктам', 'redux-framework-demo' ),
+            ),
+            array(
                 'id'       => 'desen-doctor-recomendation-title',
                 'type'     => 'text',
                 'title'    => __( 'Заголовок блока с советом врача', 'redux-framework-demo' ),
@@ -587,6 +743,18 @@
                 'title'    => __( 'Текст блока с советом врача', 'redux-framework-demo' ),
                 'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
                 'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-desen-doctor-recomendation-text-2',
+                'type'     => 'text',
+                'title'    => __('Второй текст блока с советом врача', 'redux-framework-demo' ),
+                'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'lechenie-desen-opt-advice-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Совет врача по пунктам', 'redux-framework-demo' ),
             ),
         )
     ) );
@@ -616,6 +784,12 @@
                 'title'    => __( 'Текст блока с клиническими случаямм', 'redux-framework-demo' ),
                 'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
                 'default'  => ''
+            ),
+            array(
+                'id'          => 'otbelivanie-opt-slides',
+                'type'        => 'slides',
+                'title'       => __( 'Этапы', 'redux-framework-demo' ),
+                'subtitle'    => __( 'Изображения должны быть квадратными', 'redux-framework-demo' ),
             ),
             array(
                 'id'       => 'otbelivanie-works-title',
@@ -681,7 +855,11 @@
                 'desc'     => __( 'Введите заголовок', 'redux-framework-demo' ),
                 'default'  => ''
             ),
-           
+            array(
+                'id'       => 'detskaya-opt-advice-multitext',
+                'type'     => 'multi_text',
+                'title'    => __( 'Совет врача по пунктам', 'redux-framework-demo' ),
+            ),
         )
     ) );
     Redux::setSection( $opt_name, array(
@@ -704,6 +882,14 @@
                 'desc'     => __( 'Введите текст', 'redux-framework-demo' ),
                 'default'  => ''
             ),
+            array(
+                'id'          => 'opt-slides',
+                'type'        => 'slides',
+                'title'       => __( 'Изображения страницы', 'redux-framework-demo' ),
+                'subtitle'    => __( 'Изображения должны быть одинакового размера на одной линии', 'redux-framework-demo' ),
+                
+            ),
+           
         )
     ) );
     // Redux::setSection( $opt_name, array(
@@ -801,24 +987,7 @@
     //         ),
     //     )
     // ) );
-    // Redux::setSection( $opt_name, array(
-    //     'title'      => __( 'Password', 'redux-framework-demo' ),
-    //     'id'         => 'basic-Password',
-    //     'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/password/" target="_blank">docs.reduxframework.com/core/fields/password/</a>',
-    //     'subsection' => true,
-    //     'fields'     => array(
-    //         array(
-    //             'id'       => 'password',
-    //             'type'     => 'password',
-    //             'username' => true,
-    //             'title'    => 'Password Field',
-    //             //'placeholder' => array(
-    //             //    'username' => 'Username',
-    //             //    'password' => 'Password',
-    //             //)
-    //         )
-    //     )
-    // ) );
+   
 
     // Redux::setSection( $opt_name, array(
     //     'title'      => __( 'Textarea', 'redux-framework-demo' ),
@@ -1241,19 +1410,19 @@
     // ) );
 
 
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'Фотографии страницы о нас', 'redux-framework-demo' ),
-        'id'         => 'media-gallery',
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/gallery/" target="_blank">docs.reduxframework.com/core/fields/gallery/</a>',
-        'subsection' => true,
-        'fields'     => array(
-            array(
-                'id'       => 'works-gallery',
-                'type'     => 'gallery',
-                'title'    => __( 'Клинические случаи имплантации фото', 'redux-framework-demo' ),
-            ),
-        )
-    ) );
+    // Redux::setSection( $opt_name, array(
+    //     'title'      => __( 'Фотографии страницы о нас', 'redux-framework-demo' ),
+    //     'id'         => 'media-gallery',
+    //     'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/gallery/" target="_blank">docs.reduxframework.com/core/fields/gallery/</a>',
+    //     'subsection' => true,
+    //     'fields'     => array(
+    //         array(
+    //             'id'       => 'my-custom-gallery',
+    //             'type'     => 'gallery',
+    //             'title'    => __( 'Клинические случаи имплантации фото', 'redux-framework-demo' ),
+    //         ),
+    //     )
+    // ) );
 
     // Redux::setSection( $opt_name, array(
     //     'title'      => __( 'Media', 'redux-framework-demo' ),
@@ -1321,9 +1490,7 @@
     //             'subtitle'    => __( 'Unlimited slides with drag and drop sortings.', 'redux-framework-demo' ),
     //             'desc'        => __( 'This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo' ),
     //             'placeholder' => array(
-    //                 'title'       => __( 'This is a title', 'redux-framework-demo' ),
-    //                 'description' => __( 'Description Here', 'redux-framework-demo' ),
-    //                 'url'         => __( 'Give us a link!', 'redux-framework-demo' ),
+    //                 'title'       => __( 'Описание картинки alt', 'redux-framework-demo' ),
     //             ),
     //         ),
     //     )

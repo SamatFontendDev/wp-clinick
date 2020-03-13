@@ -15,7 +15,7 @@ get_header();
                     <ul class="contacts__list">
                         <li class="contacts__item">
                             <div class="contacts-subtitle">Звоните:</div>
-                            <a href="tel: +7 (843) 570-68-76" class="contacts-tel">+7 (843) 570-68-76</a>
+                            <a href="tel: <?php echo $redux_demo['header-phone'] ?>" class="contacts-tel"><?php echo $redux_demo['header-phone'] ?></a>
                         </li>
                         <li class="contacts__item">
                             <div class="contacts-subtitle">Пишите:</div>

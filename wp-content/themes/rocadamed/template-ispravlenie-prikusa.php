@@ -190,92 +190,45 @@ get_header();
             <div class="container">
                 <div class="section-title-s section-title-s-mb-50">Основные этапы исправления прикуса</div>
                 <ul class="stages__list">
-                    <li class="stages__item">
-                        <div class="stage">
-                           <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/impl-steps_1.jpg" alt="" class="stage__img">
+                <?php
+                    for ($i=0; $i < count($redux_demo['ortodont-opt-slides']) ; $i++) { 
+                        ?>
+                            <li class="stages__item">
+                                <div class="stage">
+                                <div class="stage-left">
+                                        <div class="stage__pic">
+                                            <img src="<?php echo $redux_demo['ortodont-opt-slides'][$i]['image']?>" alt="<?php echo $redux_demo['ortodont-opt-slides'][$i]['title'] ?>" class="stage__img">
+                                        </div>
+                                    </div>
+                                    <div class="stage__desc">
+                                        <div class="stage__title"><?php echo $redux_demo['ortodont-opt-slides'][$i]['title'] ?></div>
+                                        <div class="stage__text"><?php echo $redux_demo['ortodont-opt-slides'][$i]['description'] ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Ортодонтическое обследование</div>
-                                <div class="stage__text">Врач проводит осмотр полости рта, делает оттиски зубных рядов, рентгенологическую диагностику и внутриротовые фотографии для оценки прикуса, постановки точного диагноза и выбора тактики лечения.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/breketi/2.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Установка брекетов, элайнеров, пластинок.</div>
-                                <div class="stage__text">Процедура занимает 1-1,5 часа и не вызывает неприятных ощущений.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/breketi/3.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Современные брекет-системы позваляют посещать стоматолога 1 раз в 2-3 месяца.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/breketi/4.png" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Заверщаюший этап.</div>
-                                <div class="stage__text">На этапе завершения лечения мы снимаем брекеты и устанавливаем ретенционные аппараты для закрепления результата.</div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                        <?
+                    }
+                    ?>
                 </ul>
             </div>
         </section>
         <section id="warranty" class="section warranty">
             <div class="container">
-                <div class="section-title-s section-title-s-mb-50">4 преимущества ортодонтического лечения</div>
+                <div class="section-title-s section-title-s-mb-50"><?php $redux_demo['ortodont-advantages-title'] ?></div>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Восстанавливают красивую улыбку.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Позволяют сохранить здоровье десен.</div>
-                                <div class="implantation__desc">Часто из за скученности зубов невозможно полноценно провести гигиену, что приводит к образованию зубного камня и болезням десен. Брекеты исправляют положение зубов, что облегчает чистку и предотвращает заболевания дёсен.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>3.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Помогает предотвратить кариес.</div>
-                                <div class="implantation__desc">В местах сильной скученности зубов, которые недоступны для чистки, часто развивается кариес. Исправоение прикуса позволяет решить эту проблему.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>4.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Улучшает жевательную функцию.</div>
-                                <div class="implantation__desc">Исправление прикуса улучшает смыкание зубов, что способствует восстановлению жевательной функции</div>
-                            </div>
-                        </li>
+                    <?php
+                            for ($i=0; $i < count($redux_demo['ortodont-opt-multitext']) ; $i++) { 
+                                ?>
+                                    <li class="implantation__item">
+                                        <div class="implantation__text">
+                                            <div class="implantation__title"><?php echo $redux_demo['ortodont-opt-multitext'][$i] ?></div>
+                                            <div class="implantation__desc"></div>
+                                        </div>
+                                    </li>
+                                <?
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -294,30 +247,20 @@ get_header();
                 </div>
                 <div class="doctor-advice">
                     <ul class="doctor-advice__list">
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Первый раз к ортодонту нужно прийти в 7-8 лет, когда начали прорезываться постоянные передние зубы, затем в 11-12 лет, когда заканчивается смена прикуса. Взрослые обращаются по необходимости вне зависимости от возраста.</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Чтобы зубы прорезывались в правильном положении важно вовремя обращаться к детскому стоматологу для лечения молочных зубов и профилактики кариеса.</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Обязательна к употреблению жесткая пищп яблоки, морковь, варенное мясо, это способствует правильному формированию прикуса.</div>
-                        </li>
+                    <?php
+                        for ($i=0; $i < count($redux_demo['ortodont-advice-opt-multitext']) ; $i++) { 
+                            ?>
+                                <li class="doctor-advice__item">
+                                    <div class="doctor-advice__icon">
+                                        <svg class="check">
+                                            <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="docot-advice__text"><?php echo $redux_demo['ortodont-advice-opt-multitext'][$i] ?></div>
+                                </li>
+                            <?
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

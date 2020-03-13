@@ -59,47 +59,64 @@ get_header();
                     <div class="reviews__col">
                         <div class="reviews-slider">
                             <ul class="reviews-slider__list">
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациент М. 7 лет. Профессиональная чистка зубов.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
+                              
+                            <?php
+                                    global $post;
+                                    $news_args = array(
+                                        'publish' => true,
+                                        'category_name' => 'works-kids',
+                                    );
+                                    $myposts = get_posts($news_args);
+                                    foreach( $myposts as $post ){
+                                        setup_postdata( $post );
+                                        ?>
+                                        <li class="reviews-slider__item">
+                                            <div class="reviews-slider__content">
+                                                <div class="reviews-slider__ava">
+                                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
                                                 </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>1 320 руб.</div>
+                                                <div class="reviews-slider__info">
+                                                    <div class="reviews-slider__title"><?php the_title(); ?></div>
+                                                    <div class="reviews-slider__row">
+                                                        <div class="reviews-slider__col">
+                                                            <div>Срок лечения</div>
+                                                            <div><?php echo get_post_meta( $post->ID, 'period', true );?></div>
+                                                        </div>
+                                                        <div class="reviews-slider__col">
+                                                            <div>Сумма лечения</div>
+                                                            <div><span><?php echo get_post_meta( $post->ID, 'amount', true );?></span> руб.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reviews-slider__photos">
+                                                        <?php
+                                                            if ( get_post_meta( get_the_ID(), 'pictures', false ) ){
+                                                                $image_array = get_post_meta( get_the_ID(), 'pictures', false );
+                                                            }
+                                                            if ( $image_array ) {
+                                                            
+                                                                foreach ( $image_array as $image ) {
+                                                                    
+                                                                    $thumbimg = wp_get_attachment_image( $image['ID'], 'thumbnail');
+                                                                    $fullimg = pods_image_url( $image['ID'], 'large');
+                                                                    echo    '<div class="reviews-slider__photo-wrap">
+                                                                                <div class="reviews-slider__photo">
+                                                                                    <a href="'.  $fullimg . '" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
+                                                                                        <img src="'.  $fullimg . '" alt="" class="reviews-slider__img">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>';
+                                                                }
+                                                            }
+                                                        ?>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/detaskaya-stom/before.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/detaskaya-stom/before.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/detaskaya-stom/after.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/detaskaya-stom/after.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                
+                                        </li>
+                                        <?php 
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
                               
-                                </li>
-                               
                             </ul>
                         </div>
                         <div class="slider-buttons slider-buttons--reviews">
@@ -115,23 +132,17 @@ get_header();
                 <div class="section-title-s"> <?php echo $redux_demo['detskaya-doctor-recomendation-title'] ?></div>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Гигиена полости рта
-                                    Это и домашняя ежедневная чистка зубов, и профессиональная у врача-стоматолога на приеме. В домашних условиях возможно очищение только мягкого зубного налета, а с помощью профессиональной  чистки  мы избавляемся от зубного камня и пигментированного налета.
+                    <?php
+                        for ($i=0; $i < count($redux_demo['detskaya-opt-advice-multitext']) ; $i++) { 
+                            ?>
+                                <li class="implantation__item">
+                                    <div class="implantation__text">
+                                        <div class="implantation__title"><?php echo $redux_demo['detskaya-opt-advice-multitext'][$i] ?></div>
                                     </div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Герметизация фиссур
-                                    Это запечатывание  анатомических углублений (фиссур)  на жевательной поверхности зуба фторсодержащим материалом.
-                                    Процедура необходима для защиты постоянных жевательных зубов от возникновения кариеса. Герметизацию фиссур нужно проводить в первые месяцы прорезывания зуба.
-                                    </div>
-                            </div>
-                        </li>
+                                </li>
+                            <?
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

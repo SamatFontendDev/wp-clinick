@@ -1,3 +1,4 @@
+<?php global $redux_demo; ?>
 <footer class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -9,7 +10,7 @@
                     </div>
                     <div class="footer__col">
                         <div class="footer-row">
-                            <a href="tel:+7 (843) 570-68-76" class="tel-number">+7 (843) 570-68-76</a>
+                            <a href="tel:<?php echo $redux_demo['header-phone'] ?>" class="tel-number"><?php echo $redux_demo['header-phone'] ?></a>
                         </div>
                         <a href="/kontakti" class="adress">
                             <div class="adress__icon">

@@ -186,90 +186,45 @@ get_header();
             <div class="container">
                 <div class="section-title-s section-title-s-mb-50">Основные этапы установки виниров</div>
                 <ul class="stages__list">
-                    <li class="stages__item">
-                        <div class="stage">
-                           <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/impl-steps_1.jpg" alt="" class="stage__img">
+                <?php
+                    for ($i=0; $i < count($redux_demo['viniri-opt-slides']) ; $i++) { 
+                        ?>
+                            <li class="stages__item">
+                                <div class="stage">
+                                <div class="stage-left">
+                                        <div class="stage__pic">
+                                            <img src="<?php echo $redux_demo['viniri-opt-slides'][$i]['image']?>" alt="<?php echo $redux_demo['viniri-opt-slides'][$i]['title'] ?>" class="stage__img">
+                                        </div>
+                                    </div>
+                                    <div class="stage__desc">
+                                        <div class="stage__title"><?php echo $redux_demo['viniri-opt-slides'][$i]['title'] ?></div>
+                                        <div class="stage__text"><?php echo $redux_demo['viniri-opt-slides'][$i]['description'] ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Консультация и планирование </div>
-                                <div class="stage__text">Консультирование, планирование, фотографирование, обсуждение формы и цвета будущей улыбки.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/viniri-2.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Примерка улыбки.</div>
-                                <div class="stage__text">Изготавливаем для Вас макет будущей улыбки и примеряем его во рту.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/viniri-3.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Подготовка зубов</div>
-                                <div class="stage__text">Препарируем зубы, снимаем оттиски, отправляем работу в лабораторию.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/viniri-4.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Радуемся результату.</div>
-                                <div class="stage__text">Примерно через неделю после подготовки зубов мы сдаём работу, а вы счастливые радуетесь новой улыбке.</div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                        <?
+                    }
+                    ?>
                 </ul>
             </div>
         </section>
         <section id="warranty" class="section warranty">
             <div class="container">
-                <div class="section-title-s section-title-s-mb-50">4 преимущества виниров</div>
+                <div class="section-title-s section-title-s-mb-50"><?php echo $redux_demo['advantages-viniri-title'] ?></div>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Благодаря винирам можно придать эстетичный вид зубам, чья форма или цвет были нарушены - по самым разным причинам (от вредных привычек до возрастного фактора).</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Виниры устранят такие дефекты, как потемнение пломбы и запломбированных каналов, флюороз, тетрациклиновые зубы.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>3.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Установка виниров поможет, если отбеливание не принесло желаемых результатов.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>4.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Также виниры позволяют убрать промежутки между зубами и можно скорректировать неровность зубного ряда без лечения брекетами. </div>
-                            </div>
-                        </li>
+                    <?php
+                            for ($i=0; $i < count($redux_demo['viniri-opt-multitext']) ; $i++) { 
+                                ?>
+                                    <li class="implantation__item">
+                                        <div class="implantation__text">
+                                            <div class="implantation__title"><?php echo $redux_demo['viniri-opt-multitext'][$i] ?></div>
+                                            <div class="implantation__desc"></div>
+                                        </div>
+                                    </li>
+                                <?
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -288,38 +243,20 @@ get_header();
                 </div>
                 <div class="doctor-advice">
                     <ul class="doctor-advice__list">
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Проф осмотр и проф гигиена у врача стоматолога  каждые 6 месяцев.</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Ежедневное поддержание хорошей гигиены полости рта (зубная щетка, паста, ополаскиватель, зубная нить, ирригатор).</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Соблюдение рекомендаций врача.</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Не рекомендуется откусывание сверхтвёрдой пищи.</div>
-                        </li>
+                    <?php
+                        for ($i=0; $i < count($redux_demo['viniri-advice-opt-multitext']) ; $i++) { 
+                            ?>
+                                <li class="doctor-advice__item">
+                                    <div class="doctor-advice__icon">
+                                        <svg class="check">
+                                            <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="docot-advice__text"><?php echo $redux_demo['viniri-advice-opt-multitext'][$i] ?></div>
+                                </li>
+                            <?
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

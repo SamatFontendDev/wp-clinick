@@ -59,51 +59,63 @@ get_header();
                     <div class="reviews__col">
                         <div class="reviews-slider">
                             <ul class="reviews-slider__list">
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациент 45лет , отбеливание zoom4</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 посещение</div>
+                               
+                            <?php
+                                    global $post;
+                                    $news_args = array(
+                                        'publish' => true,
+                                        'category_name' => 'works-otbelivanie',
+                                    );
+                                    $myposts = get_posts($news_args);
+                                    foreach( $myposts as $post ){
+                                        setup_postdata( $post );
+                                        ?>
+                                        <li class="reviews-slider__item">
+                                            <div class="reviews-slider__content">
+                                                <div class="reviews-slider__ava">
+                                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
                                                 </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>24 600 руб.</div>
+                                                <div class="reviews-slider__info">
+                                                    <div class="reviews-slider__title"><?php the_title(); ?></div>
+                                                    <div class="reviews-slider__row">
+                                                        <div class="reviews-slider__col">
+                                                            <div>Срок лечения</div>
+                                                            <div><?php echo get_post_meta( $post->ID, 'period', true );?></div>
+                                                        </div>
+                                                        <div class="reviews-slider__col">
+                                                            <div>Сумма лечения</div>
+                                                            <div><span><?php echo get_post_meta( $post->ID, 'amount', true );?></span> руб.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reviews-slider__photos">
+                                                        <?php
+                                                            if ( get_post_meta( get_the_ID(), 'pictures', false ) ){
+                                                                $image_array = get_post_meta( get_the_ID(), 'pictures', false );
+                                                            }
+                                                            if ( $image_array ) {
+                                                            
+                                                                foreach ( $image_array as $image ) {
+                                                                    
+                                                                    $thumbimg = wp_get_attachment_image( $image['ID'], 'thumbnail');
+                                                                    $fullimg = pods_image_url( $image['ID'], 'large');
+                                                                    echo    '<div class="reviews-slider__photo-wrap">
+                                                                                <div class="reviews-slider__photo">
+                                                                                    <a href="'.  $fullimg . '" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
+                                                                                        <img src="'.  $fullimg . '" alt="" class="reviews-slider__img">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>';
+                                                                }
+                                                            }
+                                                        ?>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/otblenivanie/1.2.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/otblenivanie/1.2.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/otblenivanie/2.1.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/otblenivanie/2.1.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/otblenivanie/2.2.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/otblenivanie/2.2.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                
+                                        </li>
+                                        <?php 
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
                                
                             </ul>
                         </div>
@@ -119,45 +131,25 @@ get_header();
             <div class="container">
                 <div class="section-title-s section-title-s-mb-50">Основные этапы отбеливания</div>
                 <ul class="stages__list">
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/impl-steps_1.jpg" alt="" class="stage__img">
+                <?php
+                    for ($i=0; $i < count($redux_demo['otbelivanie-opt-slides']) ; $i++) { 
+                        ?>
+                            <li class="stages__item">
+                                <div class="stage">
+                                <div class="stage-left">
+                                        <div class="stage__pic">
+                                            <img src="<?php echo $redux_demo['otbelivanie-opt-slides'][$i]['image']?>" alt="<?php echo $redux_demo['otbelivanie-opt-slides'][$i]['title'] ?>" class="stage__img">
+                                        </div>
+                                    </div>
+                                    <div class="stage__desc">
+                                        <div class="stage__title"><?php echo $redux_demo['otbelivanie-opt-slides'][$i]['title'] ?></div>
+                                        <div class="stage__text"><?php echo $redux_demo['otbelivanie-opt-slides'][$i]['description'] ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                           <div class="stage__desc">
-                                <div class="stage__title">Диагностика</div>
-                                <div class="stage__text">Выявляется наличие воспалений, определяет исходный и желаемый цвет зубов пациента.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/otbelivanie.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Отбеливание</div>
-                                <div class="stage__text">Проводится защита слизистых и мягких тканей, наносится специальный гель, который активируется лампой.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/diet.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Соблюдение диеты.</div>
-                                <div class="stage__text">Исключите из рациона красящие продукты и напитки, выполняйте необходимые гигиенические процедуры.</div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                        <?
+                    }
+                    ?>
                 </ul>
             </div>
         </section>

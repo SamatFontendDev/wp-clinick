@@ -17,7 +17,7 @@ get_header();
                             <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#quotes"></use>
                         </svg>
                     </div>
-                   <div>Врачи «Стоматологии комфорта» постоянно повышают квалификацию и осваивают новые методики лечения. Наша команда стоматологов всегда к вашим услугам!</div>
+                   <div>Врачи «Стоматологии Рокада-Мед» постоянно повышают квалификацию и осваивают новые методики лечения. Наша команда стоматологов всегда к вашим услугам!</div>
                 </div>
             </div>
         </section>
@@ -36,7 +36,7 @@ get_header();
                         $args = array(
                             'post_type' => 'doctors',
                             'publish' => true,
-                            'posts_per_page' => 17,
+                            'posts_per_page' => 30,
                         );
                         get_posts();
                         $slider_docotrs = get_posts( $args );

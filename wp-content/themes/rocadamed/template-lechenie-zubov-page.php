@@ -57,128 +57,62 @@ get_header();
                     <div class="reviews__col">
                         <div class="reviews-slider">
                             <ul class="reviews-slider__list">
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациент Д. 45 лет, реставрация зуба 3.6 с анестезией.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
+                            <?php
+                                    global $post;
+                                    $news_args = array(
+                                        'publish' => true,
+                                        'category_name' => 'works-lechenie-zubov',
+                                    );
+                                    $myposts = get_posts($news_args);
+                                    foreach( $myposts as $post ){
+                                        setup_postdata( $post );
+                            ?>
+                                        <li class="reviews-slider__item">
+                                            <div class="reviews-slider__content">
+                                                <div class="reviews-slider__ava">
+                                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
                                                 </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>5 100 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_8966.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_8966.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
+                                                <div class="reviews-slider__info">
+                                                    <div class="reviews-slider__title"><?php the_title(); ?></div>
+                                                    <div class="reviews-slider__row">
+                                                        <div class="reviews-slider__col">
+                                                            <div>Срок лечения</div>
+                                                            <div><?php echo get_post_meta( $post->ID, 'period', true );?></div>
+                                                        </div>
+                                                        <div class="reviews-slider__col">
+                                                            <div>Сумма лечения</div>
+                                                            <div><span><?php echo get_post_meta( $post->ID, 'amount', true );?></span> руб.</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_8967.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_8967.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_8972.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_8972.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациентка Н. 35 лет, реставрация зуба 2.5 с анестезией.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
-                                                </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>6 000 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_9010.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_9010.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_9011.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_9011.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_9016.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/IMG_9016.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
+                                                    <div class="reviews-slider__photos">
+                                                        <?php
+                                                            if ( get_post_meta( get_the_ID(), 'pictures', false ) ){
+                                                                $image_array = get_post_meta( get_the_ID(), 'pictures', false );
+                                                            }
+                                                            if ( $image_array ) {
+                                                            
+                                                                foreach ( $image_array as $image ) {
+                                                                    
+                                                                    $thumbimg = wp_get_attachment_image( $image['ID'], 'thumbnail');
+                                                                    $fullimg = pods_image_url( $image['ID'], 'large');
+                                                                    echo    '<div class="reviews-slider__photo-wrap">
+                                                                                <div class="reviews-slider__photo">
+                                                                                    <a href="'.  $fullimg . '" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
+                                                                                        <img src="'.  $fullimg . '" alt="" class="reviews-slider__img">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>';
+                                                                }
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациентка М, 27лет. Лечение кариеса с анестезией.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
-                                                </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>4 500 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/kar1.JPG" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/kar1.JPG" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/kar2.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-zubov/kar2.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                        </li>
+                                        <?php 
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
                                
                             </ul>
                         </div>
@@ -202,37 +136,21 @@ get_header();
                    <div><?php echo $redux_demo['lechenie-zubov-third-text'] ?></div>
                 </div>
                 <div class="hero-btn sign-up hero-btn_mb_50">ЗАПИСАТЬСЯ НА ПРИЁМ</div>
-                <div class="section-title-s section-title-s-mb-50">4 преимущества лечения у нас</div>
+                <div class="section-title-s section-title-s-mb-50"><?php echo $redux_demo['lechenie-zubov-advantages-title'] ?></div>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Точная диагностика</div>
-                                <div class="implantation__desc">Компьютерная рентгенография и современный ортопантомограф позволяют нам выявить все заболевания полости рта</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Индивидуальные анестетики</div>
-                                <div class="implantation__desc">Анестезия подбирается врачом в соответствии с возрастом пациента, полом, весом и клинической ситуацией</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>3.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Качественные пломбы</div>
-                                <div class="implantation__desc">Применяем проверенные композитные материалы, которые идеально воссоздают анатомическую форму</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>4.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Современное оборудование</div>
-                                <div class="implantation__desc">На стоматологических установках последнего поколения мы удаляем кариес с максимальным сохранением здоровых тканей</div>
-                            </div>
-                        </li>
+                    <?php
+                            for ($i=0; $i < count($redux_demo['lechenie-zubov-opt-multitext']) ; $i++) { 
+                                ?>
+                                    <li class="implantation__item">
+                                        <div class="implantation__text">
+                                            <div class="implantation__title"><?php echo $redux_demo['lechenie-zubov-opt-multitext'][$i] ?></div>
+                                            <div class="implantation__desc"></div>
+                                        </div>
+                                    </li>
+                                <?
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -260,32 +178,22 @@ get_header();
                     </div>
                 </div>
                 <div class="doctor-advice">
-                    <div class="doctor-advice__title">Примерно у 90-95% пациентов стоматологий выявляют те или иные заболевания зубов. Предлагаем ознакомиться с тревожащими симптомами, при которых необходимо как можно скорее показаться врачу-стоматологу:</div>
+                    <div class="doctor-advice__title"><?php echo $redux_demo['lechenie-zubov-doctor-recomendation-text-2'] ?></div>
                     <ul class="doctor-advice__list">
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Дискомфорт при употреблении горячей или холодной пищи и напитков</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Болевые ощущения при жевании и надавливании на зуб или десну</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Появление на эмали пятен, чёрных точек или образование полости</div>
-                        </li>
+                    <?php
+                        for ($i=0; $i < count($redux_demo['lechenie-zubov-advice-opt-multitext']) ; $i++) { 
+                            ?>
+                                <li class="doctor-advice__item">
+                                    <div class="doctor-advice__icon">
+                                        <svg class="check">
+                                            <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="docot-advice__text"><?php echo $redux_demo['lechenie-zubov-advice-opt-multitext'][$i] ?></div>
+                                </li>
+                            <?
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

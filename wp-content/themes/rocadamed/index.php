@@ -3,16 +3,13 @@ get_header();
 ?>
 
 
-<section style="background-image: url('<?php echo get_template_directory_uri() ?>/imgs/bg/XXL.jpg')" class="section hero">
+        <section style="background-image: url('<?php echo get_template_directory_uri() ?>/imgs/bg/XXL.jpg')" class="section hero">
            <div class="container hero-container">
                <div class="hero-block">
-                    <h1 class="title">Стоматология Рокада-Мед</h1>
+                    <h1 class="title"><?php echo $redux_demo['main-title'] ?></h1>
                     <div class="hero-text">
-                        <!-- <svg class="quotes">
-                            <use xlink:href="/svg/sprite.svg#quotes"></use>
-                        </svg> -->
                         <div class="hero-text-2">
-                           Клиника где приятно лечить зубы!
+                           <?php echo $redux_demo['main-subtitle'] ?>
                         </div>
                         <a href="/o-nas/" class="hero-btn">ПОДРОБНЕЕ О КЛИНИКЕ</a>
                     </div>
@@ -21,7 +18,7 @@ get_header();
         </section>
         <section class="section services">
             <div class="container">
-                <div class="section-title">ООО «Стоматологическая поликлиника «Рокада-Мед» </div>
+                <div class="section-title"><?php echo $redux_demo['main-second-title'] ?></div>
                 <div class="services__icons">
                     <ul class="services-list">
                         <li class="services__item">
@@ -157,9 +154,9 @@ get_header();
             <div class="container">
                 <div class="advantages__content">
                     <div class="advantages__col">
-                        <div class="section-title-s">Почему нас выбирают<br> уже более 15 лет</div>
+                        <div class="section-title-s"><?php echo $redux_demo['main-third-title'] ?></div>
                         <div class="advantages__desc">
-                            <p>Мы создаём идеальные улыбки уже 15 лет! Предлагаем новейшие технологии и методики лечения в сочетании с высоким профессионализмом врачей!</p>
+                            <p><?php echo $redux_demo['main-third-text'] ?></p>
                         </div>
                         <div class="hero-btn sign-up">ЗАПИСАТЬСЯ НА ПРИЁМ</div>
                     </div>
@@ -266,30 +263,20 @@ get_header();
                 <div class="doctor-advice">
                     <div class="doctor-advice__title">При выборе стоматологической клиники рекомендуем обратить внимание на следующие <br>моменты:</div>
                     <ul class="doctor-advice__list">
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Комплексный подход к лечению, спектр оказываемых услуг</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Применение новейшего оборудования в диагностике и лечении</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Стаж работы врачей и регулярное повышение их квалификации</div>
-                        </li>
+                        <?php
+                           for ($i=0; $i < count($redux_demo['main-opt-multitext']) ; $i++) { 
+                               ?>
+                                <li class="doctor-advice__item">
+                                    <div class="doctor-advice__icon">
+                                        <svg class="check">
+                                            <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="docot-advice__text"><?php echo $redux_demo['main-opt-multitext'][$i] ?></div>
+                                </li>
+                               <?
+                           }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -335,14 +322,14 @@ get_header();
         </section>
         <section class="section specialists">
             <div class="container">
-                <div class="section-title-s">Мы гордимся своими специалистами</div>
+                <div class="section-title-s"><?php echo $redux_demo['doctor-block-title'] ?></div>
                 <div class="specialists__text">
                     <div class="specialists__text-left">
                         <svg class="quotes quotes-blue">
                             <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#quotes"></use>
                         </svg>
                     </div>
-                   <div>Уровень квалификации врачей отражается на грамотном подходе к решению<br> проблемы, качестве лечения, высокой эстетике улыбки и комфорте пациентов.</div>
+                   <div><?php echo $redux_demo['doctor-block-subtitle'] ?></div>
                 </div>
                <div class="specialists-content">
                 <div class="hero-btn hero-btn-mb-30 sign-up">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</div>
@@ -357,7 +344,7 @@ get_header();
                                 $args = array(
                                     'post_type' => 'doctors',
                                     'publish' => true,
-                                    'posts_per_page' => 17,
+                                    'posts_per_page' => 30,
                                 );
                             get_posts();
                             $slider_docotrs = get_posts( $args );
@@ -373,7 +360,7 @@ get_header();
                     <div style='background-image: url(<?php echo get_template_directory_uri() ?>/svg/icons/arrow.svg);' class="slider-button specialists-slider-next"></div>
                 </div>
                 <div class="specialists-bottom">
-                    <p>Квалификация наших врачей ежегодно повышается на профильных курсах, семинарах и мастер-классах. У нас работают настоящие профессионалы своего дела, которые не перестают развиваться.</p>
+                    <p><?php echo $redux_demo['doctor-block-text'] ?></p>
                     <a href="/vrachi" class="specialists-slider__btn-text">ВСЕ ВРАЧИ</a>
                 </div>
             </div>

@@ -4,7 +4,7 @@
 <?php
 get_header();
 ?>
-<section class="section docs">
+<section class="section docs pb_330">
             <div class="container">
                 <div class="section-title">Документы</div>
                 <ul class="docs__list">

@@ -23,63 +23,20 @@ get_header();
         </section>
         <section class="section about-slider">
             <ul class="about-slider__list">
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/1.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/1.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/2.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/2.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/3.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/3.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/4.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/4.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/5.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/5.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/6.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/6.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/7.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/7.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-                <li class="about-slider__item">
-                    <div class="about-slider__content">
-                        <a href="<?php echo get_template_directory_uri() ?>/imgs/o-nas/8.jpeg" data-fancybox="gallery">
-                            <img src="<?php echo get_template_directory_uri() ?>/imgs/o-nas/8.jpeg" alt="" class="about-slider__img">
-                        </a>
-                    </div>
-                </li>
-            </ul>
+                    <?php
+                    for ($i=0; $i < count($redux_demo['opt-slides']) ; $i++) { 
+                        ?>
+                            <li class="about-slider__item">
+                            <div class="about-slider__content">
+                                <a href="<?php echo $redux_demo['opt-slides'][$i]['image']?>" data-fancybox="gallery">
+                                    <img src="<?php echo $redux_demo['opt-slides'][$i]['image'] ?>" alt="<?php echo $redux_demo['opt-slides'][$i]['title'] ?>" class="about-slider__img">
+                                </a>
+                            </div>
+                            </li>
+                        <?
+                    }
+                    ?>
+               </ul>
         </section>
         <section class="section why-we">
             <div class="container">

@@ -77,20 +77,15 @@
                                     <a href="/kontakti" class="nav__link">Контакты</a>
                                 </li>
                                 <li class="nav-item nav-item--phone">
-                                    <a href="tel: +7 (843) 570-68-76" class="phone">
+                                    <a href="tel: <?php echo $redux_demo['header-phone'] ?>" class="phone">
                                         <svg class="phone-svg">
                                             <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#phone"></use>
                                         </svg>
                                     </a>
                                 </li>
                             </ul>
-                            <!-- <?php
-                                wp_nav_menu(array(
-                                    'menu_id' => 'primary-menu',
-                                ));
-                            ?> -->
                         </nav>
-                        <a href="tel:+7 (843) 570-68-76" class="tel-number"><?php echo $redux_demo['header-phone'] ?></a>
+                        <a href="tel:<?php echo $redux_demo['header-phone'] ?>" class="tel-number"><?php echo $redux_demo['header-phone'] ?></a>
                         <div class="call-button sign-up">ЗАПИСАТЬСЯ</div>
                     </div>
                 </div>

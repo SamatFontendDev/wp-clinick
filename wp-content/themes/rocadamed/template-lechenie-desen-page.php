@@ -103,116 +103,62 @@ get_header();
                     <div class="reviews__col">
                         <div class="reviews-slider">
                             <ul class="reviews-slider__list">
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациентка Д. операция закрытия рецессии, с последующим восстановлением коронкой.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
+                            <?php
+                                    global $post;
+                                    $news_args = array(
+                                        'publish' => true,
+                                        'category_name' => 'works-desen',
+                                    );
+                                    $myposts = get_posts($news_args);
+                                    foreach( $myposts as $post ){
+                                        setup_postdata( $post );
+                                        ?>
+                                        <li class="reviews-slider__item">
+                                            <div class="reviews-slider__content">
+                                                <div class="reviews-slider__ava">
+                                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
                                                 </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>7 000 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/before.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/before.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
+                                                <div class="reviews-slider__info">
+                                                    <div class="reviews-slider__title"><?php the_title(); ?></div>
+                                                    <div class="reviews-slider__row">
+                                                        <div class="reviews-slider__col">
+                                                            <div>Срок лечения</div>
+                                                            <div><?php echo get_post_meta( $post->ID, 'period', true );?></div>
+                                                        </div>
+                                                        <div class="reviews-slider__col">
+                                                            <div>Сумма лечения</div>
+                                                            <div><span><?php echo get_post_meta( $post->ID, 'amount', true );?></span> руб.</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/after.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/after.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациент Н восстановление костной ткани через 1 год после пародонтологического лечения.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
-                                                </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>2 500 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/PRE^PAN^R^TATYANA_MAMLEEVA^20110531^000.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/PRE^PAN^R^TATYANA_MAMLEEVA^20110531^000.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/PRE^PAN^R^TATYANA_MAMLEEVA^20170215^000.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/PRE^PAN^R^TATYANA_MAMLEEVA^20170215^000.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
+                                                    <div class="reviews-slider__photos">
+                                                        <?php
+                                                            if ( get_post_meta( get_the_ID(), 'pictures', false ) ){
+                                                                $image_array = get_post_meta( get_the_ID(), 'pictures', false );
+                                                            }
+                                                            if ( $image_array ) {
+                                                            
+                                                                foreach ( $image_array as $image ) {
+                                                                    
+                                                                    $thumbimg = wp_get_attachment_image( $image['ID'], 'thumbnail');
+                                                                    $fullimg = pods_image_url( $image['ID'], 'large');
+                                                                    echo    '<div class="reviews-slider__photo-wrap">
+                                                                                <div class="reviews-slider__photo">
+                                                                                    <a href="'.  $fullimg . '" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
+                                                                                        <img src="'.  $fullimg . '" alt="" class="reviews-slider__img">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>';
+                                                                }
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <li class="reviews-slider__item">
-                                    <div class="reviews-slider__content">
-                                        <div class="reviews-slider__ava">
-                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/small_img_img_doctors_1_3.jpg" alt="" class="reviews-slider__img">
-                                        </div>
-                                        <div class="reviews-slider__info">
-                                            <div class="reviews-slider__title">Пациентка Р. восстановление костной ткани через 1 год после пародонтологического лечения.</div>
-                                            <div class="reviews-slider__row">
-                                                <div class="reviews-slider__col">
-                                                    <div>Срок лечения</div>
-                                                    <div>1 визит</div>
-                                                </div>
-                                                <div class="reviews-slider__col">
-                                                    <div>Сумма лечения</div>
-                                                    <div>5 000 руб.</div>
-                                                </div>
-                                            </div>
-                                            <div class="reviews-slider__photos">
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/1.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/1.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="reviews-slider__photo-wrap">
-                                                    <div class="reviews-slider__photo">
-                                                        <a href="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/2.jpg" data-fancybox="gallery-service-photos" data-caption="Caption for single image">
-                                                            <img src="<?php echo get_template_directory_uri() ?>/imgs/lechenie-desen/2.jpg" alt="" class="reviews-slider__img">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                              </div>
-                                        </div>
-                                    </div>
-                                </li>
-                               
+                                        </li>
+                                        <?php 
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
                             </ul>
                         </div>
                         <div class="slider-buttons slider-buttons--reviews">
@@ -225,67 +171,43 @@ get_header();
         </section>
         <section id="warranty" class="section warranty">
             <div class="container">
-                <div class="section-title-s">Почему нужно лечить болезни десен:</div>
+                <div class="section-title-s"><?php echo $redux_demo['lechenie-desen-why-title'] ?></div>
                <a href="#advice" class="reviews__link reviews__link--warranty scroll-btn ml-0">КАК УХАЖИВАТЬ ЗА ДЕСНАМИ</a>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Воспаление десен протекает безболезненно, и зачастую к врачу обращаются на этапе, когда возможно лишь удаление зубов</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Бактерии, вызывающие воспаление десен способны негативно влиять на гипертоническую болезнь, уровень сахара в крови, сердце.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>3.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">В отличии от кариеса воспаление десен способно привести к потери не только зубов, но и имплантатов.</div>
-                            </div>
-                        </li>
+                        <?php
+                            for ($i=0; $i < count($redux_demo['lechenie-desen-opt-multitext']) ; $i++) { 
+                                ?>
+                                    <li class="implantation__item">
+                                        <div class="implantation__text">
+                                            <div class="implantation__title"><?php echo $redux_demo['lechenie-desen-opt-multitext'][$i] ?></div>
+                                            <div class="implantation__desc"></div>
+                                        </div>
+                                    </li>
+                                <?
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
         </section>
         <section class="section reviews">
             <div class="container">
-                <div class="section-title-s">Вам нужен пародонтолог если:</div>
+                <div class="section-title-s"><?php echo $redux_demo['lechenie-desen-paradont-title'] ?></div>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Вы периодически определяете кровоточивость десен при чистке или приеме пищи</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">У Вас появилось ощущение подвижности зубов</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>3.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">У Вас определяется оголение корней зубов</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>4.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Вы ощущаете боль в деснах при приеме пищи</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>5.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">У Вас определяется оголение корней зубов</div>
-                            </div>
-                        </li>
+                    <?php
+                            for ($i=0; $i < count($redux_demo['lechenie-desen-opt-paradont-multitext']) ; $i++) { 
+                                ?>
+                                    <li class="implantation__item">
+                                        <div class="implantation__text">
+                                            <div class="implantation__title"><?php echo $redux_demo['lechenie-desen-opt-paradont-multitext'][$i] ?></div>
+                                            <div class="implantation__desc"></div>
+                                        </div>
+                                    </li>
+                                <?
+                            }
+                            ?>
                     </ul>
                 </div>
             </div>
@@ -313,40 +235,22 @@ get_header();
                     </div>
                 </div>
                 <div class="doctor-advice">
-                    <div class="doctor-advice__title">При первых признаках заболевания не откладывайте визит к врачу. Помните, что решать любую проблему надо на начальной стадии. При обнаружении следующих симптомов обязательно посетите стоматолога:</div>
+                    <div class="doctor-advice__title"><?php echo $redux_demo['lechenie-desen-doctor-recomendation-text-2'] ?></div>
                     <ul class="doctor-advice__list">
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Отёчность и покраснение слизистой</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Кровоточивость при чистке зубов</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Неприятный запах изо рта</div>
-                        </li>
-                        <li class="doctor-advice__item">
-                            <div class="doctor-advice__icon">
-                                <svg class="check">
-                                    <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
-                                </svg>
-                            </div>
-                            <div class="docot-advice__text">Дискомфорт при употреблении пищи</div>
-                        </li>
+                    <?php
+                        for ($i=0; $i < count($redux_demo['lechenie-desen-opt-advice-multitext']) ; $i++) { 
+                            ?>
+                                <li class="doctor-advice__item">
+                                    <div class="doctor-advice__icon">
+                                        <svg class="check">
+                                            <use xlink:href="<?php echo get_template_directory_uri() ?>/svg/sprite.svg#check"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="docot-advice__text"><?php echo $redux_demo['lechenie-desen-opt-advice-multitext'][$i] ?></div>
+                                </li>
+                            <?
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

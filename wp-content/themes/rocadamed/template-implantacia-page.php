@@ -190,45 +190,25 @@ get_header();
             <div class="container">
                 <div class="section-title-s section-title-s-mb-50">Основные этапы имплантации</div>
                 <ul class="stages__list">
-                    <li class="stages__item">
-                        <div class="stage">
-                           <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/impl-steps_1.jpg" alt="" class="stage__img">
+                <?php
+                    for ($i=0; $i < count($redux_demo['implatacia-opt-slides']) ; $i++) { 
+                        ?>
+                            <li class="stages__item">
+                                <div class="stage">
+                                <div class="stage-left">
+                                        <div class="stage__pic">
+                                            <img src="<?php echo $redux_demo['implatacia-opt-slides'][$i]['image']?>" alt="<?php echo $redux_demo['implatacia-opt-slides'][$i]['title'] ?>" class="stage__img">
+                                        </div>
+                                    </div>
+                                    <div class="stage__desc">
+                                        <div class="stage__title"><?php echo $redux_demo['implatacia-opt-slides'][$i]['title'] ?></div>
+                                        <div class="stage__text"><?php echo $redux_demo['implatacia-opt-slides'][$i]['description'] ?></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Комплексное обследование</div>
-                                <div class="stage__text">Врач проводит осмотр полости рта, назначает ряд необходимых анализов и компьютерную 3D-томограмму.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/impl-steps_2.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Хирургический этап</div>
-                                <div class="stage__text">На данном этапе происходит установка имплантата.</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stages__item">
-                        <div class="stage">
-                            <div class="stage-left">
-                                <div class="stage__pic">
-                                    <img src="<?php echo get_template_directory_uri() ?>/imgs/pictures/impl-steps_3.jpg" alt="" class="stage__img">
-                                </div>
-                            </div>
-                            <div class="stage__desc">
-                                <div class="stage__title">Ортопедический этап</div>
-                                <div class="stage__text">Завершающий момент имплантации, когда на установленный ранее абатмент протезируется изготовленная коронка.</div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                        <?
+                    }
+                    ?>
                 </ul>
                 <div class="stages-subtitle">В зависимости от клинической ситуации необходимо проведение:</div>
                 <div class="stages-text"></div>
@@ -247,38 +227,22 @@ get_header();
         </section>
         <section id="warranty" class="section warranty">
             <div class="container">
-                <div class="section-title-s section-title-s-mb-50">Преимущества имплантации</div>
+                <div class="section-title-s section-title-s-mb-50"><?php echo $redux_demo['advantages-title'] ?></div>
                 <div class="implantation">
                     <ul class="implantation__list">
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>1.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Приживаемость</div>
-                                <div class="implantation__desc">Индивидуальный подход к подготовке пациентов, позволяет достичь максимальной приживляемости имлантатов.</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>2.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Полностью восстанавливает зубы</div>
-                                <div class="implantation__desc">Возобновляет жевательную функцию и эстетику зубного ряда</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>3.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Сохранение костной ткани челюсти</div>
-                                <div class="implantation__desc">После вживления импланта уровень челюстной кости не снижается</div>
-                            </div>
-                        </li>
-                        <li class="implantation__item">
-                            <div class="implantation__num"><span>4.</span></div>
-                            <div class="implantation__text">
-                                <div class="implantation__title">Избавляют от использования протезов</div>
-                                <div class="implantation__desc">Считаются лучшим вариантом восстановления, т.к. не доставляют дискомфорта при эксплуатации</div>
-                            </div>
-                        </li>
-                    </ul>
+                        <?php
+                            for ($i=0; $i < count($redux_demo['implantacia-opt-multitext']) ; $i++) { 
+                                ?>
+                                    <li class="implantation__item">
+                                        <div class="implantation__text">
+                                            <div class="implantation__title"><?php echo $redux_demo['implantacia-opt-multitext'][$i] ?></div>
+                                            <div class="implantation__desc"></div>
+                                        </div>
+                                    </li>
+                                <?
+                            }
+                            ?>
+                       </ul>
                 </div>
             </div>
         </section>
